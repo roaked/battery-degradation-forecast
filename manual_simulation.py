@@ -106,9 +106,10 @@ class SimulationRunner(object):
                 "right": (1 / D_right, "Neumann")
             }
         }
-
+        
         x = pybamm.SpatialVariable("x", domain="unit line")
-        self.model.initial_conditions = {c: x + 1}
+        initial_condition_expr = x + 1
+        self.model.initial_conditions = {c: initial_condition_expr}
 
         geometry = self.model.default_geometry
 
